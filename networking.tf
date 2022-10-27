@@ -1,9 +1,9 @@
-resource "aws_vpc" "example_vpc" {
+resource "aws_vpc" "main_vpc" {
   cidr_block = "10.0.0.0/16"
 }
 
 resource "aws_subnet" "main_public" {
-  vpc_id     = aws_vpc.example_vpc.id
+  vpc_id     = aws_vpc.main_vpc.id
   cidr_block = "10.0.1.0/24"
 
   tags = {
@@ -12,7 +12,7 @@ resource "aws_subnet" "main_public" {
 }
 
 resource "aws_internet_gateway" "main_gateway" {
-  vpc_id = aws_vpc.example_vpc.id
+  vpc_id = aws_vpc.main_vpc.id
 
   tags = {
     Name = "main"
@@ -26,7 +26,7 @@ resource "aws_route" "default_route" {
 }
 
 resource "aws_route_table" "main_public_route_table" {
-  vpc_id = aws_vpc.example_vpc.id
+  vpc_id = aws_vpc.main_vpc.id
 }
 
 resource "aws_route_table_association" "main_subnet_route_association" {
