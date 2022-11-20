@@ -1,4 +1,4 @@
-resource "aws_key_pair" "ssh-key-jenkins" {
-  key_name   = "ssh-key-jenkins"
-  public_key = var.jenkins-public-key
+resource "aws_key_pair" "general_ssh_key" {
+  key_name   = "general_ssh_key"
+  public_key = var.general_ssh_key
 }
