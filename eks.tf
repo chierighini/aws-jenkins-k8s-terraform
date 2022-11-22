@@ -20,7 +20,7 @@ module "eks" {
     one = {
       name = "node-group-1"
 
-      instance_types = ["t3.nano"]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 3
